@@ -1,3 +1,6 @@
+<!-- once we submit our article , we store it in the show route, which will be displayed in this ejs file which spits out html-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,8 @@
   <title>Blog</title>
 </head>
 <body>
+
+
   <div class="container">
     <h1 class="mb-1"><%= article.title %></h1>
     <div class="text-muted mb-2">
@@ -17,7 +22,7 @@
     <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
 
     <div>
-      <%- article.sanitizedHtml %>
+      <%- article.sanitizedHtml %> <!-- this dispalys raw html om the page, instead of markdown-->
     </div>
   </div>
 </body>

@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Blog</title>
+  <title>Blog</title>  <!--- we use bootstrap tp help style our pages-->
 </head>
 <body>
   <div class="container">
-    <h1 class="mb-4">Blog Articles</h1>
-    <a href="/articles/new" class="btn btn-success">New Article</a>
+    <h1 class="mb-4">Blog Articles</h1> <!-- mb-4 means margin bottom of 4-->
+    <a href="/articles/new" class="btn btn-success">New Article</a> <!-- btn-ssuccess turns it into a green button-->
 
-    <% articles.forEach(article => { %>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h4 class="card-title"><%= article.title %></h4>
+    <% articles.forEach(article => { %> <!-- no equals sign at the begginin of the ejs tag meaning we can run js and its not inputted onto the page-->
+      <div class="card mt-4"> <!-- for each loops through each article and then display our cards which is inside the div below-->
+        <div class="card-body"> <!-- in this div, were storing all of our text for the title, body etc-->
+          <h4 class="card-title"><%= article.title %></h4> <!-- title of article is populated here-->
           <div class="card-subtitle text-muted mb-2">
-            <%= article.createdAt.toLocaleDateString() %>
-          </div>
+            <%= article.createdAt.toLocaleDateString() %> <!-- converts the date/time into strinf-->
+          </div> <!-- the text muted just makes the text grey-->  
           <div class="card-text mb-2"><%= article.description %></div>
-          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a> <!-- Button that shows us the rest of the article-->
           <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline"> <!-- the delete button is linked to the article id and not the slug, _method overrides it allows us to create a delte route-->
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
