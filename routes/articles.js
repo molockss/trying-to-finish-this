@@ -14,13 +14,26 @@ router.get('/edit/:id', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug })
   if (article == null) res.redirect('/')
-  res.render('articles/show', { article: article })
+  res.render('./articles/show', { article: article })
 })
 
-router.post('/', async (req, res, next) => {
-  req.article = new Article()
-  next()
-}, saveArticleAndRedirect('new'))
+router.post('/', async (req,res) => {   // when we submit a form its gona call this router.post which will tkae it to / after the article
+
+  let article = new Article({  // weve created a new article and passed in our all of our new articles
+      title: req.body.title,
+      description: req.body.description, // takes whatever we pass in the form 
+      markdown: req.body.markdown
+
+  })
+
+  try{ 
+ article =  await article.save()
+ res.redirect(`/articles/${article.slug}`) // redirecting to the article id page if it saves properly
+  } catch (e) {
+      console.log(e)
+  res.render('articles/new', {article: article})
+  }
+})
 
 router.put('/:id', async (req, res, next) => {
   req.article = await Article.findById(req.params.id)
