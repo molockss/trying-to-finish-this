@@ -10,18 +10,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>
 </head>
-<body>
+<body class="p-3 mb-2 bg-dark text-blue"  style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');
+height: 100%;">
 
 
-  <div class="container">
+<div class="container .d-flex p-5"  class="bg-image card shadow-1-strong"
+style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');">
     <h1 class="mb-1"><%= article.title %></h1>
     <div class="text-muted mb-2">
       <%= article.createdAt.toLocaleDateString() %>
     </div>
     <a href="/" class="btn btn-secondary">All Articles</a>
     <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+    <div class="mb-4"></div>
 
-    <div>
+    <div class="mb-4 text-white ">
       <%- article.sanitizedHtml %> <!-- this dispalys raw html om the page, instead of markdown-->
     </div>
   </div>

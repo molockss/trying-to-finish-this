@@ -7,19 +7,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>  <!--- we use bootstrap tp help style our pages-->
 </head>
-<body>
+<body class="p-3 mb-2 bg-dark text-blue"
+
+     style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');
+            height: inherit;"
+            >
+
   <div class="container">
-    <h1 class="mb-4">Blog Articles</h1> <!-- mb-4 means margin bottom of 4-->
-    <a href="/articles/new" class="btn btn-success">New Article</a> <!-- btn-ssuccess turns it into a green button-->
+    <h1 class="mb-4">Tech-Journal</h1> <!-- mb-4 means margin bottom of 4-->
+    <a href="/articles/new" class="btn btn-success">New Entry</a> <!-- btn-ssuccess turns it into a green button-->
 
     <% articles.forEach(article => { %> <!-- no equals sign at the begginin of the ejs tag meaning we can run js and its not inputted onto the page-->
       <div class="card mt-4"> <!-- for each loops through each article and then display our cards which is inside the div below-->
-        <div class="card-body"> <!-- in this div, were storing all of our text for the title, body etc-->
+        <div class="card-body rounded"
+          class="bg-image card shadow-1-strong"
+  style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');">
           <h4 class="card-title"><%= article.title %></h4> <!-- title of article is populated here-->
           <div class="card-subtitle text-muted mb-2">
             <%= article.createdAt.toLocaleDateString() %> <!-- converts the date/time into strinf-->
           </div> <!-- the text muted just makes the text grey-->  
-          <div class="card-text mb-2"><%= article.description %></div>
+          <div class="card-text mb-2 text-white"><%= article.description %></div>
           <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a> <!-- Button that shows us the rest of the article-->
           <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
           <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline"> <!-- the delete button is linked to the article id and not the slug, _method overrides it allows us to create a delte route-->

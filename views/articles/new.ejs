@@ -7,9 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>
 </head>
-<body>
-  <div class="container">
-    <h1 class="mb-4">New Article</h1>
+<body class="p-3 mb-2 bg-dark text-blue"  style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');
+height: 100%;">
+ <div class="container .d-flex p-5"  class="bg-image card shadow-1-strong"
+ style="background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');">
+    <h1 class="mb-4 text-white">New Article</h1>
 
     <form action="/articles" method="POST"> <!-- the action is what article it should go to. the method is the type of request where sending to the server-->
       <%- include('_form_fields') %>

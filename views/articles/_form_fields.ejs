@@ -4,20 +4,20 @@ that we are calling upon this form fields ejs everytime we need to edit or creat
 
 
 <div class="form-group">
-    <label for="title">Title</label>
+    <label class="text-white" for="title">Title</label>
     <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control"> <!-- required after the input below just means you cant submit the form without entering the info-->
   </div> <!-- form control is just a type of styling with bootstrap--> <!-- the value next to required allows us to prepoppulate the field to store whatever title we enetered before if we didnt get to complete it-->
   
   <!-- Above is the first div for the title part when the user selects new article-->
   
   <div class="form-group">
-    <label for="description">Description</label>
+    <label class="text-white" for="description">Description</label>
     <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>  <!--text area just means area when you can type-->
   </div>
   <!-- form control is just a type of styling with bootstrap-->
 <!-- Above is the second div for the description part when the user selects new article-->
   <div class="form-group">
-    <label for="markdown">Markdown</label>
+    <label class="text-white" for="markdown">Markdown</label>
     <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
   </div>
   

@@ -29,7 +29,7 @@ app.use(methodOverride('_method')) // now anytime we pass in the _method it will
 
 
 app.get('/', async (req, res) => {
-  const articles = await Article.find().sort({ createdAt: 'desc' }) // we're now passing in all our articles into the home page based on when we created them
+  const articles = await Article.find().sort({ createdAt: 'ascending' }) // we're now passing in all our articles into the home page based on when we created them
   res.render('articles/index', { articles: articles })
 })
 // we use render as its going to access the views folder and the index.ejs inside
